@@ -1,0 +1,192 @@
+		MANUAL IMPORT COLOMBIA VERSION 1.0
+
+	Autores:	Carlos Hernan Guadir Aza
+		Dario Fernando Criollo Estrada
+	
+		ARCHIVOS
+
+	En este programa se utilizan los siguientes archivos:
+
+	* GUI HeapsTree:		Es un  archivo de extension  python
+				en donde esta la interfaz de usuario
+				creada en QtDesinger e implementada
+				en codigo python con la ayuda de PyQt
+
+	* HeapTree:		Es  un archivo  de extension  python 
+			en donde se encuentra  la implementacion
+			de el algoritmo HeapTree. 
+
+	* ImportProducts:		Es  un  archivo de  extension   python
+				el cual contiene la clase de tipo objeto
+				y funciones que permiten comparar cada uno
+				de ellos con los exitentes y de esta manera
+				permitir , bloquear y comparar su entrada
+				al HeapTree.
+
+	* listas:		Es un archivo de extension python
+			El cual contiene las diferentes listas
+			deacuerdo a los objetos que puede ingresar
+			ademas los paises de donde los puede hacer
+
+		DESCRIPCION 
+
+	El funcionamiento de el programa se basa deacuerdo a las distintas funciones que
+	lo conforman, a continuacion se describen algunas del algoritmo HeapTree y
+	seguidamente se decribe aquellas que permiten el funcionamiento del algoritmo
+	en la interfaz grafica.
+					  
+		* def insert:		Permite que el objeto sea
+	   	 	      	ingresado a el HEAPTREE con todos sus
+				atributos, este metodo encapsula todos
+				los objetos de la clase ImportProducts
+				y encola aquellos que no esten duplicados. 
+
+		* def remove:	Este metodo elimina el primer objeto que se 
+				encuentre en la raiz del arbol, y la raiz se
+				reemplaza por la ultima importacion agregada, si
+				al realizar la operacion el arbol necesita balancearse
+				se ejecuta el balanceo del arbol.
+
+		*def search: 	Funcion empleada para buscar un objeto
+				con ciertos atributos y si lo encuentra
+				retornara True  o por el contrario
+				retornara False.
+
+		* def find: 		Este metodo encuentra el objeto, necesita por
+				parametro un objeto a comparar con los primeros
+				tres atributos para buscar
+				al buscar y ser encontrado retornara todos sus
+			   	atributos si se encuentra en el arbol.
+
+		* def __eq__:	Permite que dos objetos sean comparados
+				deacuerdo a sus caracteristicas, tipo y atributos.
+
+		* def __lt__:   	Este metodo compara dos objetos de la misma instancia
+				y define cual es el menor de los dos basado en
+				las caracteristicas de los objetos comparados.
+				Primero se compara el codigo, luego el orden del nombre
+				y por ultimo el pais del producto.
+
+		* def __gt__:   	Este metodo compara dos objetos de la misma instancia
+				y define cual es el mayor de los dos basado en
+				las caracteristicas de los objetos comparados.
+				Primero se compara el codigo, luego el orden del nombre
+				y por ultimo el pais del producto, los ultimos dos 
+				se ordenan alfabeticamente.
+
+		* def savetxtDialog:		Permite guardar o generar un archivo de 
+					extension *txt con todos los nodos del arbol 
+					que el usuario haya trabajado, esta funcion
+					lanza un dialogo para que el usuario coloque el 
+					nombre del archivo, se recomienda colocar tambien
+					la extensio.
+
+		* def savebinaryDialog:		Funcion que permite guardar o generar un archivo
+					de extencion .bin esta funcion es una ventana de dialogo
+					en la cual se debe colocar el nombre del archivo a guardarse
+					se recomienda colocar la extension, si todo esta correcto
+					se ecribiran los datos del arbol, en modo binario.
+
+		* def opentxtDialog:		Permite abrir un archivo de extension
+					*txt con colas creadas anteriormente
+					si el archivo esta correcto se cargaran
+					todos los datos a un arbol con la misma
+					condicion de ordenamiento para HeapTree.
+					Si alguna linea del archivo es incorrecta
+					no se cargaran esos datos.
+
+		* def openbinaryDialog:		Permite abrir un archivo de extension
+					*bin con colas creadas anteriormente
+					si el archivo esta correcto se cargaran
+					todos los datos a un arbol con la misma
+					condicion de ordenamiento para HeapTree.
+					Si alguna linea del archivo es incorrecta
+					no se cargaran esos datos.
+					NOTA: En este dialogo solo se podran cargar
+					archivos binarios o con extension *bin
+
+	FUNCIONAMIENTO 
+			
+	El programa se basa en la importacion de diferentes productos,
+	y se los obtiene de la misma manera de diferentes paises, esto 
+	se realiza de la siguiente manera:
+
+	Los productos se categorizan deacuerdo a su importancia y esta depende
+	primero del codigo que define un grupo o tipo de producto a importar, a
+	continuacion el ejemplo.
+
+			EJEMPLO
+
+			Codigo			Categoria			     		
+
+			1			Alimentos Principales
+			2			Alimentos Secundario
+			3			Alimentos Terciarios
+			4			Farmacos
+			5			Textiles y Ropa
+			6			Contruccion
+			7			Combustibles
+			8			Automotores
+			9			Tecnologia
+			10			Herramientas
+			11			Accesorios
+
+	Ya seleccionado un codigo de referencia se puede obtener 
+	la lista de todos los productos que se encuentren en esa lista,
+	De esta manera se selecciona un producto que se quiera importar.
+
+			EJEMPLO:    
+										
+			CATEGORIA			PRODUCTO			
+
+			Productos Construccion		["hierro", "cemento", "acelerantes",
+						 "ceramica", "pintura", "estuco",
+						 "fibrocemento","superboard", 
+						"policarbonato", "aluminio","Acrilico",
+						 "metalflex", "malla presoldada" ]
+				
+
+
+	Ya seleccionado un producto de la categoria Contruccion lo siguiente
+	sera seleccionar de que pais se lo quiere importar a ese producto.
+
+				Ejemplo:
+				
+				PRODUCTO		PAIS
+				
+				Cemento		[Ecuador, Peru, Argentina] 
+
+	Como se observa, cuando se selecciona el producto a importar de manera 
+	inmediata aparecen los paises de los cuales se puede adquirirlo.
+
+	Lo siguiente sera elegir una unidad de medida en la que se quiere importar
+	el producto.
+			
+
+			EJEMPLO:
+			
+			UNIDAD DE MEDIDA
+
+			Kilogramo
+			Arrobas
+			Toneladas
+			Galones
+			Barriles
+				
+
+	El siguiente paso sera introducir el precio dependiendo la unidad
+	en la que se quiere importar.
+			
+	Luego sera introducir la cantidad que se quiere importar, y deacuerdo
+	al pais automaticamente aparecera el arancel que se aplica. Algunas restricciones
+	para digitar el precio, como minimo un producto podra costar $ 1000 y como
+	maximo 10 mil millones de pesos. 
+			
+	El resultado que se obtiene es diferentes importaciones que son 
+	guardadas como objetos en archivos ya puede ser .txt o .bin que se
+	guardan como nodos en el HeapTree.
+
+	Adicionalmente el programa presenta tres opciones de impresion de arbol actual,
+	este se puede imprimir en preorder, inorder y posorder. La
+	informacion se presentara en pantalla en una tabla con los encabezados respectivos
+	para cada dato en los nodos.
